@@ -1,0 +1,69 @@
+doctype html(lang='en')
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content="Lucas Shigeru Stinchcombe's Personal Site")
+    meta(name='author', content='Lucas Shigeru Stinchcombe')
+    //- link(rel='shortcut icon', href='../../docs-assets/ico/favicon.png')
+    //- |
+    title= title
+    
+    link(href='/stylesheets/bootstrap.css', rel='stylesheet')
+    link(href='/stylesheets/main.css', rel='stylesheet')
+    script(src='https://code.jquery.com/jquery-1.10.2.min.js')
+    script(src='/javascripts/hover.zoom.js')
+    script(src='/javascripts/hover.zoom.conf.js')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js')
+  body
+    .navbar.navbar-inverse.navbar-static-top
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Lucas Stinchcombe
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            block nav    
+    
+    //- Content
+    block content
+
+    
+    #footer
+      .container
+        .row
+          .col-lg-4
+            h4 My Bunker
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            p
+              | Some Address 987,
+              br
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;+34 9054 5455,
+              br
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;Madrid, Spain.
+          // /col-lg-4
+          .col-lg-4
+            h4 My Links
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            p
+              a(href='#') Dribbble
+              br
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              a(href='#') Twitter
+              br
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              a(href='#') Facebook
+          // /col-lg-4
+          .col-lg-4
+            h4 About Stanley
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            p
+              | This cute theme was created to showcase your work in a simple way. Use it wisely.
+    
+    script(src='/javascripts/bootstrap.min.js')

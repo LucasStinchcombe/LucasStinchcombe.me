@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  #ww
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.centered
+          img(src='/images/user.png', alt='Stanley')
+          h1= title
+          #authentication
+            fieldset
+              form#adminAuth(name='adminAuth', method='post', action='/admin')
+                input#adminUsername(type='text', placeholder='Username', name='username')
+                input#adminPassword(type='password', placeholder='Password', name='password')
+                button#btnEnter Enter

@@ -1,0 +1,51 @@
+extends admin
+
+block content
+  //- LaTex
+  script(src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+  .blogpost#white
+    .container
+        .row
+          .col-lg-8.col-lg-offset-2
+            p
+              img(src='/images/user.png', width='50px', height='50px')
+              ba Lucas Shigeru Stinchcombe
+            p #{meta.date}  |  #{meta.relDate}
+            h4= blogpost.title
+            h5= blogpost.description
+            p: img.img-responsive(src='/images/McGill.jpg', alt='McGill')
+            != body
+            p
+              bt
+                | TAGS: 
+                a(href='#') Wordpress
+                |  - 
+                a(href='#') Web Design
+            hr
+            p: a(href='/admin/blog')
+              span.glyphicon.glyphicon-chevron-left
+              | Back
+              
+  .blogpost#grey
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2
+          #blogEdit.blogForm
+            h4 Edit Blogpost
+            hr
+            fieldset
+              form#blogEditForm(name='editBlogpost', method='post', action='/admin/blog/edit', published=blogpost.publish)
+                input#title(type='text', name='title', placeholder='Title', value=blogpost.title)
+                input#description(type='text', placeholder='Description', name='description', value=blogpost.description)
+                textarea#body(rows=10, cols=40, placeholder='Body', name='post')
+                                != blogpost.body
+                h5 Publish?
+                  input#publish(type='checkbox', name='publish', value='publish')
+                input#blogpostId(type='text', placeholder='Id', name='id', value=blogpost._id)
+                input#databaseId(type='hidden', name='databaseId', value=blogpost._id)
+                input#date(type='hidden', name='date', value=blogpost.date)
+                button#submitEdit Edit Blogpost
+
+  script(type='text/javascript').
+    var publish = $('#blogEditForm').is('[published]');
+    if(publish) $('input#publish').prop('checked', true);

@@ -1,0 +1,19 @@
+extends admin
+
+block content
+  .blogpost#grey
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2
+          #newBlog.blogForm
+            h4 New Blogpost
+            hr
+            fieldset
+              form#newBlogForm(name='newBlogpost', method='post', action='/admin/blog/new')
+                input#title(type='text', placeholder='Title', name='title')
+                input#description(type='text', placeholder='Description', name='description')
+                textarea#body(rows=10, cols=40, placeholder='Body', name='body')
+                h5 Publish?
+                  input#publish(type='checkbox', name='publish', value='publish')
+                input#blogpostId(type='text', placeholder='Id', name='id')
+                button#submitNew Create Post

@@ -1,0 +1,30 @@
+extends admin
+
+block content
+  #grey
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.text-right
+          #newBlog: a(href='/admin/blog/new')
+            span.glyphicon.glyphicon-plus
+            nb New Blogpost
+          
+  each post in blogposts
+    .blogpost#grey
+      .container
+        .row
+          .col-lg-8.col-lg-offset-2
+            p
+              img(src='/images/user.png', width='50px', height='50px')
+              ba Lucas Shigeru Stinchcombe
+              if post.publish
+                ba#published Published
+              else
+                ba#unpublished Unpublished
+            p: bd #{meta.date}  |  #{meta.relDate}
+            h4= post.title
+            p= post.description
+            p#edit: a(href='/admin/blog/' + post._id) Edit Post
+  
+  script(type='text/javascript').
+    $('.blogpost:odd').attr('id', 'white');

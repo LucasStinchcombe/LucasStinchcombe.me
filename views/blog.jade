@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  each post in blogposts
+    .blogpost#grey
+      .container
+          .row
+            .col-lg-8.col-lg-offset-2
+              p
+                img(src='/images/user.png', width='50px', height='50px')
+                ba Lucas Shigeru Stinchcombe
+              p: bd #{meta.date}  |  #{meta.relDate}
+              h4= post.title
+              p= post.description
+              p: a(href='/blog/' + post._id) Continue Reading...
+  
+  script(type='text/javascript').
+    $('.blogpost:odd').attr('id', 'white');
