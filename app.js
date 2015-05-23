@@ -12,14 +12,14 @@ var sessions = require('client-sessions');
 var mongo = require('mongoskin');
 // var db = mongo.db('mongodb://localhost:27017/Lucas', {native_parser:true});
 
-// Mongolab
 var mongoUri = process.env.PROD_MONGODB;
-mongo.Db.connect(mongoUri, function (err, db) {
-  db.collection('mydocs', function(er, collection) {
-    collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
-    });
-  });
-});
+var db = mongo.db( mongoUri );
+// mongo.Db.connect(mongoUri, function (err, db) {
+//   db.collection('mydocs', function(er, collection) {
+//     collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
+//     });
+//   });
+// });
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -59,7 +59,7 @@ app.get('/logout', function(req, res){
 
 // Make db accessible to app
 app.use( function(req, res, next) {
-  req.db = mongo.Db;
+  req.db = db;
   next();
 });
 
