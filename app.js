@@ -14,12 +14,6 @@ var mongo = require('mongoskin');
 
 var mongoUri = process.env.PROD_MONGODB;
 var db = mongo.db( mongoUri );
-// mongo.Db.connect(mongoUri, function (err, db) {
-//   db.collection('mydocs', function(er, collection) {
-//     collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
-//     });
-//   });
-// });
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');

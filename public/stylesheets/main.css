@@ -155,12 +155,22 @@ a:after {
 
 #footer {
 	background-color: #2f2f2f;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 30px;
+	padding-bottom: 20px;
+}
+
+#footer .cottage{
+    background-color: #60858E;
+    padding-bottom: 0;
 }
 
 #footer p {
 	color: white;
+}
+
+#footer p.node {
+  padding-top: 15px;
+  margin-bottom: 0;
 }
 
 #footer h4 {
@@ -168,6 +178,11 @@ a:after {
 	text-transform: uppercase;
 	padding-bottom: 20px;
 }
+
+#footer img {
+  padding: 0 30 0 30;
+}
+
 
 
 /* +++++ Color Wraps / Blog Page +++++ */
