@@ -9,8 +9,18 @@ var bodyParser = require('body-parser');
 var sessions = require('client-sessions');
 
 // Database
-var mongo = require('mongoskin');
-var db = mongo.db('mongodb://localhost:27017/Lucas', {native_parser:true});
+// var mongo = require('mongoskin');
+// var db = mongo.db('mongodb://localhost:27017/Lucas', {native_parser:true});
+
+// Mongolab
+var mongo = require('mongodb');
+var mongoUri = process.env.MONGOLAB_URI;
+mongo.Db.connect(mongoUri, function (err, db) {
+  db.collection('mydocs', function(er, collection) {
+    collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
+    });
+  });
+});
 
 var routes = require('./routes/index');
 var admin = require('./routes/admin');
@@ -50,7 +60,7 @@ app.get('/logout', function(req, res){
 
 // Make db accessible to app
 app.use( function(req, res, next) {
-  req.db = db;
+  req.db = mongo.Db;
   next();
 });
 
