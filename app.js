@@ -13,7 +13,7 @@ var mongo = require('mongoskin');
 // var db = mongo.db('mongodb://localhost:27017/Lucas', {native_parser:true});
 
 // Mongolab
-var mongoUri = process.env.MONGOLAB_URI;
+var mongoUri = process.env.PROD_MONGODB;
 mongo.Db.connect(mongoUri, function (err, db) {
   db.collection('mydocs', function(er, collection) {
     collection.insert({'mykey': 'myvalue'}, {safe: true}, function(er,rs) {
