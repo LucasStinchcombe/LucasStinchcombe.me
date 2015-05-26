@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  #ww
+    .container
+      .row
+        .col-lg-8.col-lg-offset-2.centered
+          img(src='/images/user.png', alt='Stanley')
+          h1 Hi, I'm Lucas Stinchcombe!
+          p.
+            Hi everyone. I'm Lucas Shigeru Stinchcombe, a third year student at McGill University studying Computer Science.
+          p.
+            Be yourself and enjoy life or something.
+            
+  script(src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+  .blogpost#white
+    .container
+        .row
+          .col-lg-8.col-lg-offset-2
+            p
+              img(src='/images/user.png', width='50px', height='50px')
+              ba Lucas Shigeru Stinchcombe
+            p: bd #{meta.date}  |  #{meta.relDate}
+            h4= blogpost.title
+            p: img.img-responsive(src='/images/McGill.jpg', alt='McGill')
+            != body
+            p
+              bt
+                | TAGS: 
+                a(href='#') Wordpress
+                |  - 
+                a(href='#') Web Design
+            hr
+            p: a(href='/blog')
+              span.glyphicon.glyphicon-chevron-left
+              | Back

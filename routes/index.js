@@ -38,4 +38,25 @@ router.get('/blog/:id', function(req, res, next){
   });
 });
 
+
+// For Now
+router.get('/projects', function(req,res,next){
+  res.render('projects', {
+    title: 'Projects' + '|' + 'LucasStinchcombe.me'
+  });
+});
+router.get('/about', function(req,res,next){
+  var db = req.db;
+  db.collection('blogpost').findOne({ _id:'first-post'}, function(err, result){
+    res.render('about', {
+      title: 'About' + '|' + 'LucasStinchcombe.me',
+      blogpost: result,
+      meta: { date : moment(result.date).format('MMM Do YYYY'),
+              relDate: moment(result.date).fromNow() },
+      body: marked(result.body)
+    });
+  });
+});
+
+
 module.exports = router;
